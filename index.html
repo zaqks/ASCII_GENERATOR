@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>ASCII Generator</h1>
+        
+        <div class="control-section">
+            <h2>Upload Image</h2>
+            <div class="file-input-wrapper">
+                <button class="file-input-button">Choose Image File</button>
+                <input type="file" accept="image/*" id="imageInput">
+            </div>
+            <div class="or-divider">OR</div>
+            <input type="url" 
+                   class="url-input" 
+                   id="imageUrl" 
+                   placeholder="Paste image URL here"
+                   pattern="https?://.+"
+                   title="Please enter a valid HTTP(S) URL">
+        </div>
+
+        <div class="control-section">
+            <h2>Controls</h2>
+            <div class="control-group">
+                <label>
+                    Width (Resolution)
+                    <span class="value-display" id="widthValue">100</span>
+                </label>
+                <input type="range" id="widthRange" min="20" max="200" value="100">
+            </div>
+            <div class="control-group">
+                <label>
+                    Character Density
+                    <span class="value-display" id="densityValue">5</span>
+                </label>
+                <input type="range" id="densityRange" min="2" max="10" value="5">
+            </div>
+        </div>
+
+        <div class="control-section">
+            <h2>Actions</h2>
+            <div class="dropdown">
+                <button class="dropdown-button" id="actionButton">
+                    Export / Copy
+                    <span>▼</span>
+                </button>
+                <div class="dropdown-content" id="actionDropdown">
+                    <div class="dropdown-item" id="copyAction">
+                        <i>📋</i> Copy to Clipboard
+                    </div>
+                    <div class="dropdown-item" id="downloadTextAction">
+                        <i>📄</i> Download as Text
+                    </div>
+                </div>
+            </div>
+            <div class="copy-feedback" id="copyFeedback">Copied!</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <pre id="ascii-output" class="empty-canvas">Upload an image to generate ASCII art</pre>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
